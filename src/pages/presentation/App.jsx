@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
@@ -9,17 +9,20 @@ export const App = () => {
   const api = process.env.REACT_APP_BASE_URL;
   const [res, setRes] = useState();
 
-  axios(api + id, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    presentation_id: id,
-  }).then((response) => {
-    setRes(response.data);
-    console.log(response);
-  });
-  // .catch((err) => navigate("/404"));
+  useEffect(() => {
+    axios(api + id, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      presentation_id: id,
+    })
+      .then((response) => {
+        setRes(response.data);
+        console.log(response);
+      })
+      .catch((err) => navigate("/404"));
+  }, []);
 
   return (
     res && (
