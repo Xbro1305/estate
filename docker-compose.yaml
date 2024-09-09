@@ -1,0 +1,11 @@
+services:
+
+  frontend:
+    image: estate_presentation_frontend
+    build:
+      context: .
+    ports:
+      - "3000:3000"
+    container_name: estate_presentation_frontend
+    restart: unless-stopped
+    command: sh -c "npm run build && npm install -g serve && serve -s build"
