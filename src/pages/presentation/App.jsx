@@ -15,13 +15,12 @@ export const App = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      presentation_id: id,
-    })
-      .then((response) => {
-        setRes(response.data);
-        console.log(response);
-      })
-      // .catch((err) => navigate("/404"));
+      presentation_id: JSON.stringify({ id }),
+    }).then((response) => {
+      setRes(response.data);
+      console.log(response);
+    });
+    // .catch((err) => navigate("/404"));
   }, []);
 
   return (
