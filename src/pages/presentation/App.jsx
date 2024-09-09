@@ -21,7 +21,7 @@ export const App = () => {
         setRes(response.data);
         console.log(response);
       })
-      .catch((err) => navigate("/404"));
+      // .catch((err) => navigate("/404"));
   }, []);
 
   return (
