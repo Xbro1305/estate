@@ -10,7 +10,7 @@ export const App = () => {
   const [res, setRes] = useState();
 
   useEffect(() => {
-    axios(api + id, {
+    axios(api + "presentation/" + id, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
